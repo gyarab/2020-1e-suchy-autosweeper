@@ -48,7 +48,7 @@ public class PlayingField {
                 field[x][y] = c;
             }
         }
-        covered = w*h;
+        covered = w * h;
         this.w = w;
         this.h = h;
     }
@@ -100,7 +100,7 @@ public class PlayingField {
                     // :( nemám rád Platform.runLater, ale už je moc pozdě
                     // na to celý projekt přepsat. Pravděpodobně by se měl
                     // render centralizovat. (dokumentace lže)
-                    Platform.runLater(()->{
+                    Platform.runLater(() -> {
                         for (Cell[] row : field) {
                             for (Cell c : row) {
                                 if (c.bomb && !c.isUncovered()) c.setState(10);
@@ -111,7 +111,7 @@ public class PlayingField {
                 break;
             case MINE_UNCOVER:
                 this.gameOver = true;
-                Platform.runLater(()->{
+                Platform.runLater(() -> {
                     for (Cell[] row : field) {
                         for (Cell c : row) {
                             if (c.bomb && !c.isUncovered()) c.setState(10);

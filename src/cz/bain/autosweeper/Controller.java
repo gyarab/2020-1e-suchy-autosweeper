@@ -101,14 +101,14 @@ public class Controller implements Initializable {
 
                     List<Cell> candidates = solver.chooseSquare();
 
-                    calculation_duration += System.currentTimeMillis()-time_start;
+                    calculation_duration += System.currentTimeMillis() - time_start;
 
                     int calculation_duration_final = calculation_duration;
-                    Platform.runLater(()-> time_display.display(calculation_duration_final));
+                    Platform.runLater(() -> time_display.display(calculation_duration_final));
 
                     if (candidates.size() == 0) break;
                     if (pf.getGameType() == GameSettings.GAME_TYPE.AUTOMATIC) {
-                        Platform.runLater(()->{
+                        Platform.runLater(() -> {
                             if (pf.gameOver) return;
                             for (int x = 0; x < pf.getW(); x++) {
                                 for (int y = 0; y < pf.getH(); y++) {
@@ -130,7 +130,7 @@ public class Controller implements Initializable {
                 }
                 guessed += solver.guessed;
                 lvl2 += solver.lvl2;
-                System.out.println("calc duration: "+calculation_duration);
+                System.out.println("calc duration: " + calculation_duration);
                 return null;
             }
         };
@@ -143,8 +143,8 @@ public class Controller implements Initializable {
             protected Void call() throws Exception {
                 long start = System.currentTimeMillis();
                 while (!isCancelled()) {
-                    long duration = (System.currentTimeMillis()-start)/1000;
-                    Platform.runLater(()->time_display.display((int) duration));
+                    long duration = (System.currentTimeMillis() - start) / 1000;
+                    Platform.runLater(() -> time_display.display((int) duration));
                     Thread.sleep(1000);
                 }
                 return null;

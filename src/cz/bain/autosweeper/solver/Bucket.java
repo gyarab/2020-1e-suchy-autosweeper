@@ -8,15 +8,17 @@ import java.util.List;
 public class Bucket {
 
     List<Cell> cells = new ArrayList<>();
-    int bombs = 0;
+    int bombs;
     Cell owner;
 
     public Bucket(Cell owner) {
         this.owner = owner;
         this.bombs = owner.getBombCount();
     }
+
     /**
      * Subtract a bucket from this bucket
+     *
      * @param b other bucket
      */
     public void sub(Bucket b) {

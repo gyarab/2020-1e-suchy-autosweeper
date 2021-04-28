@@ -36,16 +36,16 @@ public class Solver {
             List<Cell> candidates = new ArrayList<>();
             switch (field.getGameRound()) {
                 case 0:
-                    candidates.add(field.getCellAt(0,0));
+                    candidates.add(field.getCellAt(0, 0));
                     break;
                 case 1:
-                    candidates.add(field.getCellAt(0, field.getH()-1));
+                    candidates.add(field.getCellAt(0, field.getH() - 1));
                     break;
                 case 2:
-                    candidates.add(field.getCellAt(field.getW()-1, 0));
+                    candidates.add(field.getCellAt(field.getW() - 1, 0));
                     break;
                 case 3:
-                    candidates.add(field.getCellAt(field.getW()-1, field.getH()-1));
+                    candidates.add(field.getCellAt(field.getW() - 1, field.getH() - 1));
                     break;
             }
             return candidates;
@@ -301,12 +301,12 @@ public class Solver {
                 }
                 for (Cell c : target.getNeighbours()) {
                     if (!c.isUncovered() && !hasFlag(c, SolverFlags.MINE)) {
-                        float probability = (float) bomb_count/covered_neighbours;
+                        float probability = (float) bomb_count / covered_neighbours;
                         if (probabilities.containsKey(c) && probabilities.get(c) > probability)
                             continue;
-                        if (probability < 1f/5)
+                        if (probability < 1f / 5)
                             setFlag(c, SolverFlags.PROBABILITY_LOW, true);
-                        else if (probability < 1f/3)
+                        else if (probability < 1f / 3)
                             setFlag(c, SolverFlags.PROBABILITY_MEDIUM, true);
                         else setFlag(c, SolverFlags.PROBABILITY_HIGH, true);
 
@@ -317,8 +317,8 @@ public class Solver {
         }
 
         Cell min_cell = field.getCellAt(
-                (int)(Math.random() * field.getW()+1),
-                (int)(Math.random() * field.getH()+1)
+                (int) (Math.random() * field.getW() + 1),
+                (int) (Math.random() * field.getH() + 1)
         );
         float min_probability = 1.0f;
         for (Map.Entry<Cell, Float> entry : probabilities.entrySet()) {
@@ -328,7 +328,7 @@ public class Solver {
             }
         }
         candidates.add(min_cell);
-        System.out.println("Picking cell with probability of: "+min_probability);
+        System.out.println("Picking cell with probability of: " + min_probability);
 
         return candidates;
     }

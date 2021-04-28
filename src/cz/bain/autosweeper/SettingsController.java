@@ -42,17 +42,17 @@ public class SettingsController implements Initializable {
 
     private void width_changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
         gameSettings.width = t1.intValue();
-        text_width.setText("Field width: "+t1.intValue());
+        text_width.setText("Field width: " + t1.intValue());
     }
 
     private void height_changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
         gameSettings.height = t1.intValue();
-        text_height.setText("Field height: "+t1.intValue());
+        text_height.setText("Field height: " + t1.intValue());
     }
 
     private void mine_changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
         gameSettings.mine_probability = Math.round(t1.doubleValue() * 100) / 100.0f;
-        text_mine_prob.setText("Mine probability: "+Math.round(t1.doubleValue() * 100) / 100.0f);
+        text_mine_prob.setText("Mine probability: " + Math.round(t1.doubleValue() * 100) / 100.0f);
     }
 
     private void game_mode_changed(ObservableValue<? extends GameSettings.GAME_TYPE> observableValue,

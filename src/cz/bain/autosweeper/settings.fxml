@@ -1,66 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Slider?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
-
-
-<StackPane prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.bain.autosweeper.SettingsController">
-   <children>
-      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="300.0" prefWidth="250.0">
-         <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Settings">
-               <font>
-                  <Font name="Monospaced Regular" size="18.0" />
-               </font>
-               <VBox.margin>
-                  <Insets bottom="10.0" top="7.0" />
-               </VBox.margin>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<StackPane prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/11.0.2"
+           xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.bain.autosweeper.SettingsController">
+    <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="300.0" prefWidth="250.0">
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Settings">
+            <font>
+                <Font name="Monospaced Regular" size="18.0"/>
+            </font>
+            <VBox.margin>
+                <Insets bottom="10.0" top="7.0"/>
+            </VBox.margin>
+        </Text>
+        <VBox prefHeight="200.0" prefWidth="100.0">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Field width" fx:id="text_width">
+                <font>
+                    <Font name="Monospaced Regular" size="13.0"/>
+                </font>
             </Text>
-            <VBox prefHeight="200.0" prefWidth="100.0">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Field width" fx:id="text_width">
-                     <font>
-                        <Font name="Monospaced Regular" size="13.0" />
-                     </font>
-                  </Text>
-                  <Slider max="20.0" min="3.0" fx:id="slider_width"/>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Field height" fx:id="text_height">
-                     <font>
-                        <Font name="Monospaced Regular" size="13.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                  </Text>
-                  <Slider max="20.0" min="3.0" fx:id="slider_height"/>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Mine probability" fx:id="text_mine_prob">
-                     <font>
-                        <Font name="Monospaced Regular" size="13.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                  </Text>
-                  <Slider max="0.30" fx:id="slider_mine_prob"/>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Game mode">
-                     <font>
-                        <Font name="Monospaced Regular" size="13.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                  </Text>
-                  <ChoiceBox fx:id="game_type_input"/>
-               </children>
-            </VBox>
-         </children>
-      </VBox>
-   </children>
+            <Slider max="50.0" min="3.0" fx:id="slider_width"/>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Field height" fx:id="text_height">
+                <font>
+                    <Font name="Monospaced Regular" size="13.0"/>
+                </font>
+                <VBox.margin>
+                    <Insets top="10.0"/>
+                </VBox.margin>
+            </Text>
+            <Slider max="30.0" min="3.0" fx:id="slider_height"/>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Mine probability" fx:id="text_mine_prob">
+                <font>
+                    <Font name="Monospaced Regular" size="13.0"/>
+                </font>
+                <VBox.margin>
+                    <Insets top="10.0"/>
+                </VBox.margin>
+            </Text>
+            <Slider max="0.30" fx:id="slider_mine_prob"/>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Game mode">
+                <font>
+                    <Font name="Monospaced Regular" size="13.0"/>
+                </font>
+                <VBox.margin>
+                    <Insets top="10.0"/>
+                </VBox.margin>
+            </Text>
+            <ChoiceBox fx:id="game_type_input"/>
+        </VBox>
+    </VBox>
 </StackPane>

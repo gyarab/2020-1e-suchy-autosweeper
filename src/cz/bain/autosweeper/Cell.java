@@ -117,12 +117,12 @@ public class Cell extends ImageView {
         this.uncovered = true;
         playingField.incGameRound();
         if (this.bomb) {
-            Platform.runLater(()->setState(11));
+            Platform.runLater(() -> setState(11));
             playingField.fireEvent(PlayingField.EventType.MINE_UNCOVER);
             return;
         }
         int n = calculateNumber();
-        Platform.runLater(()->setState(n+1));
+        Platform.runLater(() -> setState(n + 1));
         playingField.fireEvent(PlayingField.EventType.UNCOVER);
         if (n == 0) uncoverNeighbours();
     }

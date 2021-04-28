@@ -1,34 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.geometry.Rectangle2D?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.StackPane?>
-
-<VBox alignment="TOP_CENTER" prefHeight="274.0" prefWidth="369.0" style="-fx-background-color: #ccc;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.bain.autosweeper.Controller">
+<?import javafx.scene.layout.VBox?>
+<VBox alignment="TOP_CENTER" prefHeight="274.0" prefWidth="369.0" style="-fx-background-color: #ccc;"
+      xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="cz.bain.autosweeper.Controller">
     <HBox alignment="TOP_RIGHT">
-        <children>
-            <ImageView fx:id="analyze_button" fitHeight="32.0" fitWidth="72.0" onMousePressed="#onSettingsPressed" onMouseReleased="#analyze" pickOnBounds="true" preserveRatio="true">
-                <image>
-                    <Image url="file:resources/buttons.png" />
-                </image>
-                <viewport>
-                    <Rectangle2D minY="64.0" height="64.0" width="256.0" />
-                </viewport>
-            </ImageView>
-            <ImageView fx:id="settings_button" fitHeight="32.0" fitWidth="72.0" onMousePressed="#onSettingsPressed" onMouseReleased="#onSettingsReleased" pickOnBounds="true" preserveRatio="true">
-                <image>
-                    <Image url="file:resources/buttons.png" />
-                </image>
-                <viewport>
-                    <Rectangle2D height="64.0" width="256.0" />
-                </viewport>
-            </ImageView>
-        </children>
+        <ImageView fx:id="analyze_button" fitHeight="32.0" fitWidth="72.0" onMousePressed="#onSettingsPressed"
+                   onMouseReleased="#analyze" pickOnBounds="true" preserveRatio="true">
+            <viewport>
+                <Rectangle2D minY="64.0" height="64.0" width="256.0"/>
+            </viewport>
+            <Image url="file:resources/buttons.png"/>
+        </ImageView>
+        <ImageView fx:id="settings_button" fitHeight="32.0" fitWidth="72.0" onMousePressed="#onSettingsPressed"
+                   onMouseReleased="#onSettingsReleased" pickOnBounds="true" preserveRatio="true">
+            <viewport>
+                <Rectangle2D height="64.0" width="256.0"/>
+            </viewport>
+            <Image url="file:resources/buttons.png"/>
+        </ImageView>
     </HBox>
     <StackPane prefHeight="40" fx:id="top_bar">
         <padding>
@@ -41,8 +36,8 @@
             <Image url="file:resources/smiley.png"/>
         </ImageView>
     </StackPane>
-    <GridPane fx:id="playingGrid" alignment="CENTER" />
-   <padding>
-      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-   </padding>
+    <GridPane fx:id="playingGrid" alignment="CENTER"/>
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+    </padding>
 </VBox>

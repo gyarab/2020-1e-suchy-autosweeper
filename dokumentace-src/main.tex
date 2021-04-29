@@ -1,0 +1,60 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage[english, czech]{babel}
+\usepackage{amsmath}
+
+% package na vklad obrázků
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{stfloats} % opravuje obrázky přes celou stránku
+\graphicspath{ {./images/} } % definování složky s obrázky
+
+% zvyšování hloubky obsahu
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+
+% citace
+\usepackage[citestyle=ieee]{biblatex} 
+% \usepackage{biblatex}
+\addbibresource{literature.bib}
+
+% definování listings pro vklad kódu
+\usepackage{listings}
+\lstset{language=Java}
+
+% abstrakt s větším písmem (https://tex.stackexchange.com/a/366170)
+\makeatletter
+\renewenvironment{abstract}{%
+    \if@twocolumn
+      \section*{\abstractname}%
+    \else %% <- here I've removed \small
+      \begin{center}%
+        {\bfseries \Large\abstractname\vspace{\z@}}%  %% <- here I've added \Large
+      \end{center}%
+      \quotation
+    \fi}
+    {\if@twocolumn\else\endquotation\fi}
+\makeatother
+
+\selectlanguage{czech} % nastavení jazyka
+\usepackage[T1]{fontenc}
+\include{hyphenation} % upřesnění slabik v různých cizích slovech
+
+\begin{document}
+
+\include{titulnistrany}  % povinné strany
+
+\twocolumn
+\input{sections/uvod}
+\input{sections/tvorbahry}
+\input{sections/automat}
+\input{sections/zaver}
+
+\newpage
+\onecolumn
+\printbibliography
+\listoffigures
+
+\end{document}

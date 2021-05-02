@@ -16,10 +16,27 @@
 \setcounter{secnumdepth}{4}
 
 % citace
-\usepackage[citestyle=ieee]{biblatex} 
+\usepackage[
+    citestyle=numeric,
+    autocite=superscript,
+    sorting=none
+    ]{biblatex} 
 % \usepackage{biblatex}
 \addbibresource{literature.bib}
 
+\DeclareCiteCommand{\supercite}[\mkbibsuperscript]
+  {\iffieldundef{prenote}
+     {}
+     {\BibliographyWarning{Ignoring prenote argument}}%
+   \iffieldundef{postnote}
+     {}
+     {\BibliographyWarning{Ignoring postnote argument}}%
+   \bibopenbracket}%
+  {\usebibmacro{citeindex}%
+   \usebibmacro{cite}}
+  {\supercitedelim}
+  {\bibclosebracket}
+  
 % definování listings pro vklad kódu
 \usepackage{listings}
 \lstset{language=Java}

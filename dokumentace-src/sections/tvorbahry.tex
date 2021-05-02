@@ -34,7 +34,7 @@ slouží jako indikátor stavu hry. (obrázek \ref{fig:stavy smajlíku})
 \begin{figure}
     \centering
     \includegraphics[scale=0.6]{smiley.png}
-    \caption{Všechny stavy smajlíku. Popisky (zleva doprava): Neutrální, Prohra, Hráč odhaluje minu, Výhra}
+    \caption{Všechny stavy smajlíku. Popisky (zleva): Neutrální, Prohra, Hráč odhaluje minu, Výhra}
     \label{fig:stavy smajlíku}
 \end{figure}
 
@@ -58,23 +58,23 @@ slouží jako indikátor stavu hry. (obrázek \ref{fig:stavy smajlíku})
 
 \subsubsection{Design}
 Vzhled programu je pokus o klon originálního designu Windows Minesweeper. Jako vzor byla použita jedna z mnoha
-webových implementací \cite{playminesweeper}, jsou z ní vybrané zejména barvy čísel a vzhled smajlíku při
+webových implemen-\\tací \autocite{playminesweeper}, jsou z ní vybrané zejména barvy čísel a vzhled smajlíku při
 různých stavech hry. Původě mělo herní pole být tvořeno z několika tlačítek neboli objektů typu \\
 {\tt javafx.scene.control.Button}, to by ale vyžadovalo hodně stylování a pravděpodobně také vytvořit si své
 vlastní písmo s originálními číslicemi. Místo tlačítek jsou tedy využité \\{\tt javafx.scene.image.ImageView},
 které umožňují zobrazit výstřižek obrázku. Na jednotlivé {\tt ImageView} jsou poté navázány funkce spouštějící
 se při zmáčknutí, nebo puštění talčítka od myši.
 
-Podobný problém nastal u časovače. Optimálně by měl být jeho sedmi-segmentovaný displej generován, ale moderní
+Podobný problém nastal u časovače. Originálně byl jeho sedmi-segmentový displej generován, ale moderní
 počítače mají dost paměti na to, aby mohla každá číslice být uložená jako obrázek. Každá viditelná cifra je
 stejně jako u všeho ostatního jeden {\tt ImageView}, všechny jsou poté spravovány třídou \\{\tt SevenSegmentDisplay}.
 
-Všechny obrázky byly tvořeny mnou v programu Aseprite (Aseprite je placený, ale open-source. Je tedy zcela možné si
-Aseprite zkompilovat zadarmo, což byla metoda, kterou jsem zvolil).
+Všechny obrázky byly tvořeny mnou v programu Aseprite.\footnote{Aseprite je placený, ale open-source. Je tedy zcela možné si
+Aseprite zkompilovat zadarmo, což byla metoda, kterou jsem zvolil.}
 
 \subsection{Herní pole a stav hry}
 Herní pole je hlavní částí programu. Poté co ho ovladač hlavního okna vytvoří, spravuje celou hru. Při inicializaci
-nového pole ({\tt PlayingField}) je třeba poskytnout jen herní nastavení. Pole poté vygeneruje všechny políčka,
+nového pole ({\tt PlayingField}) je třeba poskytnout jen herní nastavení. Pole poté vygeneruje všechna políčka,
 které lze dostat zpátky pomocí metody {\tt getCellAt}. Aby bylo možné pole rychle vykreslit,
 je implementována metoda {\tt render}, která jako parametr dostane JavaFX {\tt GridPane}, do kterého
 vloží \\všechny políčka.

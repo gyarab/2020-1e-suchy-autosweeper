@@ -28,16 +28,17 @@ problém s rozlišením "začínající" hry od ostatních. Hra je pro automat z
 žádná políčka s číslem (počtem \\bomb v okolí) 0 a počet odehraných tahů je méně než čtyři.
 
 V této situaci automat odkrývá políčka v rozích, protože vzhledem k počtu okolních políček je nejvíce pravděpodobné, že stav
-políčka nebude možné vydedukovat. \cite{bercerra2015} Pravděpodobnost výhry se tím sice nezmění, ale algoritmus alespoň neplýtvá
-čas řešením hry ve které bude muset hádat.
+políčka nebude možné vydedukovat. \autocite{bercerra2015} Pravděpodo-\\bnost výhry se tím sice nezmění, ale algoritmus alespoň 
+neplýtvá čas řešením hry, ve které bude muset hádat.
 
 \subsection{První úroveň}
 První úroveň automatu je algoritmus, který se dívá na stav každého odhaleného políčka a pokud se jeho číslo schoduje s počtem
-neodhalených sousedů (8 sousedících políček) tak všechny sousedy označí jako bomby. Po zkontrolování celého pole jde zpátky na
-začátek a prochází celé pole znovu. Hledá políčka u kterých se jejich číslo schoduje s počtem nalezených bomb, jestliže taková
+neodhalených sousedů (8 sousedících políček), tak všechny sousedy označí jako bomby. Po zkontrolování celého pole jde zpátky na
+začátek a prochází celé pole znovu. Hledá políčka, u kterých se jejich číslo schoduje s počtem nalezených bomb, jestliže taková
 situace nastane, jsou odhaleni všichni sousedi, kteří nebyli označeni jako bomba.
 
-Komplexitu prvního stupně odhaduji na \\$O(8n)$. V praxi je ale vyhodnocování pole mnohem rychlejší vzhledem k počtu políček s číslem 0, které jsou pro výpočet zanedbatelné.
+Komplexitu prvního stupně odhaduji na \\$O(8n)$, jelikož pro každé políčko musí algoritmus zkontrolovat všech osm sousedů.
+V praxi je ale vyhodnocování pole mnohem rychlejší vzhledem k počtu políček s číslem 0, které jsou pro výpočet zanedbatelné.
 
 \begin{figure*}[ht!]
     \centering
@@ -55,7 +56,7 @@ mohli od sebe odčítat. Tato limitace omezuje druhou úroveň na řešení situ
 působení druhé úrovně rozšířit tím, že označí už odhalené bomby a zvýší tak šanci, že nějaký kyblík nebude přesahovat ven z
 hlavního.
 
-Poté co byli nalezeny všechny kyblíky a bylo zajištěno, že se mezi nimi nenachází žádné duplikáty, je potřeba vyřešit průniky
+Poté co byly nalezeny všechny kyblíky a bylo zajištěno, že se mezi nimi nenachází žádné duplikáty, je potřeba vyřešit průniky
 dvou, či více kyblíků. V situaci na obrázcích (\ref{fig:sitauce_u2}) se nachází jeden průnik a to mezi zeleným a modrým kyblíkem.
 Algoritmus se nejdřív snaží najít jakékoliv políčko, které je ve více než jednom kyblíku. Pokud nějaké políčko najde, snaží se
 dohledat celý průnik. Každý průnik poté zkusí vyhodnotit tím, že odečte očekávaný počet bomb v průniku od všech pronikajících
@@ -68,7 +69,7 @@ odčítání z celkového počtu bomb. Tedy průnik obsahuje všechny miny v hla
 Kde $K$ je množina počtů bomb všech pronikajících kyblíků a hlavního kyblíku.
 
 Po ošetření průniků algoritmus odčítá všechny pod-kyblíky od hlavního (tzn. odstranit všechny políčka pod-kyblíku z hlavního
-kyblíku a odečtení počtu bomb). Všechny zbylé políčka v hlavním kyblíku lze považovat za bezpečné za podmínky, že počet bomb se
+kyblíku a odečtení počtu bomb). Všechny zbylá políčka v hlavním kyblíku lze považovat za bezpečné za podmínky, že počet bomb se
 rovná $0$. Při nerovnosti algoritmus výpočet zahodí a přechází na další políčko.
 
 
@@ -82,16 +83,16 @@ nejvyšší. Po výpočtu všech pravděpodobností algoritmus vybere políčko 
 
 
 \subsection{Limity}
-Autosweeper nedokáže vyřešit všechny Minesweeper hry. Řešení těchto her je těžký matematický problém, Richard Kaye ve své studii
-nazvané "Minesweeper is NP-Complete" \\argumentuje mnoha způsoby, že Minesweeper problém je NP-úplný \cite{Kaye2000}. To by
+Autosweeper nedokáže vyřešit všechny Minesweeper hry. Řešení těchto her je těžký matematický problém. Richard Kaye ve své studii
+nazvané "Minesweeper is NP-Complete" \\argumentuje mnoha způsoby, že Minesweeper problém je NP-úplný \autocite{Kaye2000}. To by
 znamenalo, že je jeden z nejtěžších matematických problémů a jeho komplexita by byla stejná jako ta známého problému s obchodním
-cestujícím \cite{wiki_tsp}. \\Vždy úspěšný automat je hned vyloučen při prvním tahu, kdy je vždy možné narazit na minu. Záleží
-tedy na implementaci hry, jestli první tah udělá zaručeně dobrým, nebo jestli herní pole bude už přegenerované (způsob používán
+cestujícím \autocite{wiki_tsp}. \\Vždy úspěšný automat je hned vyloučen při prvním tahu, kdy je vždy možné narazit na minu. Záleží
+tedy na implementaci hry, jestli první tah udělá zaručeně dobrým, nebo jestli herní pole bude už předgenerované (způsob používán
 Autosweeperem).
 
-Aby se dala kvantifikovat úspěšnost Autosweeperu, byl spuštěn vždy na 1000 her pro různé nastavení a z výsledků se vytvořil graf
-(obrázek \ref{fig:uspesnost}). Na grafu lze vidět, že automat má při jednoduché hře (pravděpodobnost výskytu min $0,05$) vysokou
+Ve snaze kvantifikovat úspěšnost Autosweeperu, byl spuštěn vždy na 1000 her pro různé nastavení a z výsledků se vytvořil graf
+(obrázek \ref{fig:uspesnost}). Z grafu lze vidět, že automat má při jednoduché hře (pravděpodobnost výskytu min $0,05$) vysokou
 úspěšnost a zároveň řeší většinu tahů jen pomocí prvního stupně. Při pravděpodobnosti $0,15$ je automat úspěšný jen v polovině
 her. Tyto hry jsou těžké i pro lidské hráče. Při pravděpodobnosti $0,20$, tedy každé páté políčko je v průměru mina, automatu
-selhává i druhý stupeň algoritmizace a je vidět, že automat ve většině případech hádá.
+selhává i druhý stupeň algoritmizace a můžeme vidět, že automat ve většině případech pouze neinformovaně hádá.
 
